@@ -1924,7 +1924,7 @@ function getData() {
         });
 ═══════════════════════════════════════════════════ */
 const ORIGENES_PERMITIDOS = [
-  // 'https://consultorio.ronndu.com'
+  'https://medic-os.onrender.com'
 ];
 
 function origenPermitido(origin) {
@@ -1989,6 +1989,10 @@ document.addEventListener('DOMContentLoaded', function () {
   if (window.opener) {
     const btn = document.getElementById('btn-enviar-consultorio');
     if (btn) btn.style.display = 'inline-block';
+    // Avisa a quien nos abrió que ya podemos recibir datos — evita que
+    // medic-OS tenga que reintentar el postMessage con un setInterval.
+    const destino = ORIGENES_PERMITIDOS.length === 1 ? ORIGENES_PERMITIDOS[0] : '*';
+    window.opener.postMessage({ type: 'gero:ready' }, destino);
   }
 });
 
