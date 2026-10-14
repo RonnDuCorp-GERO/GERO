@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "gero-app",
+  "name": "gero",
   "account_id": "f459d6bcb2fce12cc1c57925591b3b18",
   "compatibility_date": "2026-05-23",
   "observability": {
